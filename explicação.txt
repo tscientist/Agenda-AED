@@ -1,0 +1,27 @@
+*Explicação função INCLUIR*
+
+void incluir (void *pBuffer){
+Recebe o ponteiro buffer
+cria uma variavel VARIAVEIS para usar as variaveis inteiras contador e numero de pessoas: 	VARIAVEIS *var;
+Cria uma variavel agenda para adicionar 1 contato contendo nome e numero: 	AGENDA *contato;
+cria um ponteiro buffer auxiliar: 	void *pBuffer2;
+VARIAVEIS v recebe o valor de buffer: 	v=pBuffer;
+adiciona mais 1 pessoa no numero de pessoas da agenda :	v->cont++ (lembrando que v->pessoas é igual v.cont)
+realoca o ponteiro para o tamanho contido em agenda(2 chars)	pBuffer=realloc(pBuffer,sizeof(AGENDA));
+Passo o tamanho de buffer para o ponteiro aux	pBuffer2=pBuffer;
+****PERGUNTAR*****
+Cria um for usando a VARIAVEIS v.i, sendo i 0 e indo até o tamanho de pessoas
+	for(v->i=0;v->i<v->cont;v->i++){
+		pBuffer2++;
+}
+****PERGUNTAR*****
+Pessoa recebe o ponteiro com o tamanho para salvar o nome e o numero	contato=pBuffer2;	
+Recebe o nome e o telegone até a pessoa clicar /n=enter
+	printf("Nome: ");
+	getchar();
+	fgets(contato->nome,40,stdin);
+	contato->nome[strcspn(contato->nome,"/n")]=0;
+	printf("Telefone: ");
+	fgets(contato->telefone,10,stdin);
+	contato->telefone[strcspn(contato->telefone,"/n")]=0;
+
