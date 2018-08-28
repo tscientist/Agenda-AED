@@ -16,23 +16,20 @@ typedef struct variaveis{
 	void incluir(void *pBuffer){
 		VARIAVEIS *var;
 		AGENDA *contato;
-		void *pBuffer2;
+		void *aux;
 		var = pBuffer;
 		var->cont++;
 		pBuffer=realloc(pBuffer,sizeof(AGENDA));
-		pBuffer2=pBuffer;
+		aux=pBuffer;
 		
 		for(var->i=0;var->i<var->cont;var->i++){
-			pBuffer2++;
+			aux++;
 		}
-		contato = pBuffer2;	
-		printf("Nome: ");
-		getchar();
-		fgets(contato->nome,10,stdin);
-		contato->nome[strcspn(contato->nome,"/n")]=0;
-		printf("Numero: ");
-		fgets(contato->telefone,10,stdin);
-		contato->telefone[strcspn(contato->telefone,"/n")]=0;
+		contato = aux;	
+		printf("Nome:");
+		scanf("%d", &contato->nome);
+		printf("Numero:");
+		scanf("%d", &contato->telefone);
 
 	}
 	void listar(void *pBuffer){
